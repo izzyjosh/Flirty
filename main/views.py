@@ -16,7 +16,7 @@ def index(request:HttpRequest) -> HttpResponse:
     return render(request,"index.html",context)
 
 def cat_detail(request:HttpRequest,cat_id:int) -> HttpResponse:
-    quotes:Quote = Quote.objects.filter(pk=cat_id)
+    quotes:Quote = Quote.objects.filter(category_id=cat_id)
 
     return render(request,"cat_detail.html",{"quotes":quotes})
 

@@ -4,8 +4,12 @@ const catItem = document.querySelectorAll(".cat-item")
 const quotePara = document.querySelectorAll(".quote-p")
 const favoriteButton = document.querySelector(".fav")
 const favIcon = document.querySelector(".fav-icon")
+const logo = document.querySelector(".logo")
 
-
+logo.addEventListener("click", () => {
+ const url = window.location.origin
+ location.assign(url)
+})
 
 // index  category view
 for (let i = 0; i < catItem.length; i++) {
