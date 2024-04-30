@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %} Favorote {% endblock %}
+<br />
+{% block content %}
+<main class="fav-div"></main>
+
+<script>
+  const quoteId = document.getElementById("quote-id");
+  const quote = document.querySelector(".cliptext");
+  const favDiv = document.querySelector(".fav-div");
+
+  let quotes = "";
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    const htmlContent = `<div class="quote">
+  <div class="head">
+    <ul>
+      <li id="quote-id">${key}</li>
+      <li><i class="bi bi-clipboard clipboard"></i></li>
+    </ul>
+  </div>
+  <p class="cliptext">${value}</p>
+</div>`;
+
+    quotes += htmlContent;
+    console.log(htmlContent);
+  }
+  favDiv.innerHTML = quotes;
+</script>
+{% endblock %}

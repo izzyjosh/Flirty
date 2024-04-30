@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %} Category Detail {% endblock %}
+{%block content %}
+<main>
+  <div class="container">
+    {% for quote in quotes %}
+    <!--<a href="{% url 'main:quote' quote.id %}">-->
+    <div class="quote">
+      <p class="quote-p" data-id="{{ quote.id }}">{{ quote.quote }}</p>
+    </div>
+    <!--</a>-->
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

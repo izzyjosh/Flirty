@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %} Quote {% endblock %}
+<br />
+{% block content %}
+<main>
+  <div class="quote">
+    <div class="head">
+      <ul>
+        <li>{{ quote.id }}</li>
+        <li>
+          <i
+            class="bi bi-heart fav"
+            data-id="{{ quote.id }}"
+            data-quote="{{ quote.quote }}"
+          ></i>
+        </li>
+      </ul>
+    </div>
+    <p class="cliptext">{{ quote.quote }}</p>
+  </div>
+</main>
+<footer>
+  <i class="bi bi-shuffle"></i>
+  <i class="bi bi-clipboard clipboard"></i>
+  <i class="bi bi-share-fill sharebutton"></i>
+</footer>
+<script>
+  const favButton = document.querySelector(".fav");
+  const favQuote = favButton.getAttribute("data-quote");
+  const id = favButton.getAttribute("data-id");
+
+  for (let i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    if (key === `quote${id}`) {
+      favButton.setAttribute("class", "bi bi-heart-fill fav");
+    }
+  }
+</script>
+{% endblock %}
