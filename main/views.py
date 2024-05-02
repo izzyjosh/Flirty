@@ -18,7 +18,7 @@ def cat_detail(request: HttpRequest, cat_id: int) -> HttpResponse:
 
     return render(request, "cat_detail.html", {"quotes": quotes})
 
-
+#handles the query for a specific quote
 def quote(request: HttpRequest, q_id: int) -> HttpResponse:
     quote: Quote = get_object_or_404(Quote, pk=q_id)
 
